@@ -10,7 +10,8 @@
   <input type="button" value="Cadastrar" *ngIf="btnCadastro" class="btn btn-primary" (click)="cadastrar()">
   <!--Evento de click -> chama o método editar-->
   <input type="button" value="Alterar" *ngIf="!btnCadastro" class="btn btn-warning" (click)="editar()">
-  <input type="button" value="Remover" *ngIf="!btnCadastro" class="btn btn-danger">
+  <!--Evento de click -> chama o método remover-->
+  <input type="button" value="Remover" *ngIf="!btnCadastro" class="btn btn-danger" (click)="remover()">
   <input type="button" value="Cancelar" *ngIf="!btnCadastro" class="btn btn-secondary">
 </form>
 
