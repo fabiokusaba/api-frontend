@@ -104,6 +104,18 @@ export class PrincipalComponent {
     });
   }
 
+  //Método para cancelar a ação retornando para a página inicial
+  cancelar(): void {
+    //Limpar formulário
+    this.cliente = new Cliente();
+
+    //Visibilidade dos botões
+    this.btnCadastro = true;
+
+    //Visibilidade da tabela
+    this.tabela = true;
+  }
+
   //Método de inicialização do componente -> assim que criado irá executar o que estiver em ngOnInit
   ngOnInit() {
     this.selecionar();
