@@ -15,7 +15,7 @@ export class PrincipalComponent {
   //Variável para visibilidade dos botões
   btnCadastro: boolean = true;
 
-  //JSON de clientes
+  //JSON de clientes -> vetor do tipo Cliente
   clientes: Cliente[] = [];
 
   //Construtor -> injeção de dependência -> acesso ao nosso ClienteService
@@ -26,6 +26,21 @@ export class PrincipalComponent {
   selecionar(): void {
     this.servico.selecionar()
       .subscribe(retorno => this.clientes = retorno);
+  }
+
+  //Método cadastrar clientes
+  cadastrar(): void {
+    this.servico.cadastrar(this.cliente)
+      .subscribe(retorno => {
+        //Cadastrar o cliente no vetor do tipo Cliente
+        this.clientes.push(retorno);
+
+        //Limpar os campos de input do formulário
+        this.cliente = new Cliente();
+
+        //Mensagem de sucesso
+        alert('Cliente cadastrado com sucesso!');
+      });
   }
 
   //Método de inicialização do componente -> assim que criado irá executar o que estiver em ngOnInit
